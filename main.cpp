@@ -3,8 +3,6 @@
 #include "Utils.h"
 
 int main() {
-    //float x = 0;
-    //float fadeTick = 0;
     float dt;
     sf::Clock dt_clock;
     sf::Font font;
@@ -31,11 +29,12 @@ int main() {
 
     std::string collLocation;
     
-
+    //main loop
     while (window.isOpen())
     {
         window.clear();
     
+        //event handling
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -88,24 +87,6 @@ int main() {
         time.setString("rock pos: x" + std::to_string(brick.getRect().getPosition().x) + "y" + std::to_string(brick.getRect().getPosition().y)
                         + "\nplayer1 pos : x" + std::to_string(player1.getRect().getPosition().x) + "y" + std::to_string(player1.getRect().getPosition().y)
                         + "\ncollision location: " + collLocation);
-
-        //couldn't get fading colors to work...
-        /*
-        x++;
-        float a = abs(70.0 * sin(x / 2000));
-
-        if (dt_clock.getElapsedTime().asMilliseconds() % 13 == 0) {
-            if (fadeTick == 1000.0) {
-                fadeTick = 0;
-            }
-            
-            rainbow = rainbowStep(fadeTick, rainbow, 1);
-            fadeTick++;
-        }
-
-        player1.rect.setFillColor(rainbow);
-        glow = applyGlowEffect(player1, rainbow, a, .75);
-        */
 
         window.draw(time);
         window.draw(brick.rect);
